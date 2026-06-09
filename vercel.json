@@ -1,0 +1,49 @@
+{
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "framework": "nextjs",
+  "nodeVersion": "18.x",
+  "env": {
+    "NEXT_PUBLIC_WHATSAPP_PHONE": {
+      "description": "WhatsApp phone number for orders"
+    },
+    "NEXT_PUBLIC_GOOGLE_MAPS_API_KEY": {
+      "description": "Google Maps API key for location features"
+    },
+    "NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME": {
+      "description": "Cloudinary cloud name for image optimization"
+    },
+    "NEXT_PUBLIC_GOOGLE_ANALYTICS_ID": {
+      "description": "Google Analytics tracking ID"
+    }
+  },
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, must-revalidate"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/menu",
+      "destination": "/#menu",
+      "permanent": true
+    },
+    {
+      "source": "/order",
+      "destination": "/#order",
+      "permanent": true
+    },
+    {
+      "source": "/location",
+      "destination": "/#location",
+      "permanent": true
+    }
+  ]
+}
